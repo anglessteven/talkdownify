@@ -1,0 +1,19 @@
+<!doctype html>
+<html ng-app="talkdownify">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="talkdownify.js"></script>
+        <link rel="stylesheet" href="talkdownify.css">
+        <title>Talkdownify | Talk down to your audience!</title>
+    </head>
+    <body>
+        <h2>Talkdownify</h2>
+        <div ng-controller="TalkdownifyController as talkdownify">
+            <form ng-submit="talkdownify.talkdownify()">
+                <textarea ng-model="talkdownify.text" rows="10" cols="50"
+                        placeholder="text to be talkdown-ified here"></textarea>
+                <input type="submit" value="Talkdownify!">
+            </form>
+        </div>
+    </body>
+</html>
