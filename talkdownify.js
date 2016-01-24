@@ -2,11 +2,17 @@
     "use strict";
 
     angular.module("talkdownify", [])
-        .controller("TalkdownifyController", function () {
-            var talkdownify = this;
+        .controller("TalkdownifyController", TalkdownifyController);
 
-            talkdownify.talkdownify = function() {
-                talkdownify.text = "talkdownified text";
-            }
-        });
+    TalkdownifyController.$inject = ["$log"];
+
+    function TalkdownifyController($log) {
+        var talkdownifyController = this;
+
+        talkdownifyController.talkdownify = talkdownify;
+
+        function talkdownify() {
+            $log.debug("text is: ", talkdownifyController.text);
+        }
+    }
 }());
