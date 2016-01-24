@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ng-app="talkdownify" lang="en">
     <head>
         <meta charset="utf-8">
@@ -13,7 +13,8 @@
             }
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-        <script src="talkdownify.js"></script>
+        <script src="angular/talkdownifyController.js"></script>
+        <script src="angular/talkdownifyService.js"></script>
     </head>
     <body>
         <div class="container">
@@ -27,7 +28,7 @@
             <hr>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title">Before talkdownify</h3>
                         </div>
@@ -39,7 +40,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-success">
                         <div class="panel-heading">
                             <h3 class="panel-title">After talkdownify</h3>
                         </div>
@@ -53,12 +54,12 @@
             </div>
             <h2>Try it</h2>
             <hr>
-            <div class="row">
-                <div class="col-md-6" ng-controller="TalkdownifyController as talkdownify">
-                    <form>
+            <div class="row" ng-controller="TalkdownifyController as talkdownify">
+                <div class="col-md-6">
+                    <form ng-submit="talkdownify.talkdownify()">
                         <div class="form-group">
                             <label class="control-label">Text to be talkdown-ified</label>
-                            <textarea class="form-control" placeholder="Text goes here"></textarea>
+                            <textarea ng-model="talkdownify.text" class="form-control" placeholder="Text goes here"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Words to include in talkdown-ified result</label>
@@ -74,7 +75,7 @@
                                            placeholder="add word here">
                                 </div>
                                 <div class="col-md-2">
-                                    <input ng-click="talkdownify.addKeyword()" class="btn btn-default" type="submit" value="add">
+                                    <input ng-click="talkdownify.addKeyword()" class="btn btn-default btn-block" value="add">
                                 </div>
                             </div>
                         </div>
@@ -85,7 +86,8 @@
                     <form>
                         <div class="form-group">
                             <label>Talkdown-ified result</label>
-                            <textarea class="form-control" placeholder="Talkdown-ified result here"></textarea>
+                            <textarea ng-model="talkdownify.talkdownifiedText" class="form-control"
+                                      placeholder="Talkdown-ified result here"></textarea>
                         </div>
                     </form>
                 </div>
