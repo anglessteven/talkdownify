@@ -26,7 +26,8 @@
         }
 
         function talkdownifySuccess(result) {
-            talkdownify.talkdownifiedText = result;
+            $log.debug("result is: ", result);
+            vm.talkdownifiedText = result;
         }
 
         function addKeyword() {

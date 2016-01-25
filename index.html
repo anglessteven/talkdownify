@@ -8,8 +8,26 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
               integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <style>
+            html {
+                position: relative;
+                min-height: 100%;
+            }
             body {
-                padding-bottom: 70px;
+                /* footer height */
+                margin-bottom: 120px;
+            }
+            .footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 60px;
+                background-color: #f5f5f5;
+            }
+            .container .text-muted {
+                margin: 20px 0;
+            }
+            .left-indent {
+                margin-left: 30px;
             }
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
@@ -24,7 +42,7 @@
             </div>
         </div>
         <div class="container">
-            <h2>Talking down to your audience has never been easier</h2>
+            <h2>Talking down to your readers has never been easier</h2>
             <hr>
             <div class="row">
                 <div class="col-md-6">
@@ -63,12 +81,14 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Words to include in talkdown-ified result</label>
-                            <ul class="list-unstyled">
-                                <li ng-repeat="keyword in talkdownify.keywords">
-                                    <input type="checkbox" ng-model="keyword.checked">
-                                    <span>{{keyword.word}}</span>
-                                </li>
-                            </ul>
+                            <div class="left-indent">
+                                <ul class="list-unstyled">
+                                    <li ng-repeat="keyword in talkdownify.keywords">
+                                        <input type="checkbox" ng-model="keyword.checked">
+                                        <span>{{keyword.word}}</span>
+                                    </li>
+                                </ul>
+                            </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <input class="form-control" type="text" ng-model="talkdownify.keywordText" size="30"
@@ -92,13 +112,27 @@
                     </form>
                 </div>
             </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>About</h2>
+                    <hr>
+                    <p>
+                        I created this sarcastic tool after reading math and computer science texts that talk down
+                        to their readers by preceding their conclusions with words like "obviously" and "clearly". I'm not sure
+                        why the authors of these texts feel the need to pepper their explanations with these words. It can be
+                        frustrating to read an "obvious" result of a theorem or algorithm only to not understand why it's obvious.
+                        Obviously, these authors think all their readers think exactly as they do!
+                    </p>
+                </div>
+            </div>
         </div>
-        <nav class="navbar navbar-default navbar-fixed-bottom">
+        <footer class="footer">
             <div class="container">
                 <p class="text-muted">
                     Lorem ipsum blah blah blah
                 </p>
             </div>
-        </nav>
+        </footer>
     </body>
 </html>

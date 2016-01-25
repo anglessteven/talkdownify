@@ -15,7 +15,7 @@
             var deferred = $q.defer();
             var talkdownifiedText = "talkdownified text!";
 
-            deferred.resolve(talkdownifiedText);
+            deferred.resolve(text);
 
             return deferred.promise;
         }
