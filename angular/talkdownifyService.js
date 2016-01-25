@@ -12,12 +12,14 @@
         talkdownifyService.talkdownify = talkdownify;
 
         function talkdownify(text, keywords) {
-            var deferred = $q.defer();
-            var talkdownifiedText = "talkdownified text!";
-
-            deferred.resolve(text);
-
-            return deferred.promise;
+            return $q(function (resolve, reject) {
+                if (text) {
+                    resolve(text);
+                }
+                else {
+                    reject("text was undefined!");
+                }
+            });
         }
     }
 }());

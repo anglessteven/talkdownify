@@ -13,7 +13,7 @@
                 min-height: 100%;
             }
             body {
-                /* footer height */
+                /* footer height + 60px padding */
                 margin-bottom: 120px;
             }
             .footer {
@@ -42,34 +42,6 @@
             </div>
         </div>
         <div class="container">
-            <h2>Talking down to your readers has never been easier</h2>
-            <hr>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Before talkdownify</h3>
-                        </div>
-                        <div class="panel-body">
-                            <p>
-                                Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">After talkdownify</h3>
-                        </div>
-                        <div class="panel-body">
-                            <p>
-                                Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <h2>Try it</h2>
             <hr>
             <div class="row" ng-controller="TalkdownifyController as talkdownify">
@@ -110,6 +82,34 @@
                                       placeholder="Talkdown-ified result here"></textarea>
                         </div>
                     </form>
+                </div>
+            </div>
+            <h2>Talking down to your readers has never been easier</h2>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Before talkdownify</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">After talkdownify</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <br />
