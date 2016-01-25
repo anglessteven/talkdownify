@@ -49,7 +49,7 @@
                     <form ng-submit="talkdownify.talkdownify()">
                         <div class="form-group">
                             <label class="control-label">Text to be talkdown-ified</label>
-                            <textarea ng-model="talkdownify.text" class="form-control" placeholder="Text goes here"></textarea>
+                            <textarea rows="10" ng-model="talkdownify.text" class="form-control" placeholder="Text goes here"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Words to include in talkdown-ified result</label>
@@ -78,7 +78,7 @@
                     <form>
                         <div class="form-group">
                             <label>Talkdown-ified result</label>
-                            <textarea ng-model="talkdownify.talkdownifiedText" class="form-control"
+                            <textarea rows="10" ng-model="talkdownify.talkdownifiedText" class="form-control"
                                       placeholder="Talkdown-ified result here"></textarea>
                         </div>
                     </form>
@@ -90,11 +90,16 @@
                 <div class="col-md-6">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Before talkdownify</h3>
+                            <h3 class="panel-title">Before talkdownify <small>From <a href="https://simple.wikipedia.org/wiki/Drosophila">this</a> simple wikipedia article</small></h3>
                         </div>
                         <div class="panel-body">
                             <p>
-                                Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
+                                There are many species in this genus.
+                                Some do prefer places where there is rotting fruit.
+                                The adults may feed on nectar, and may lay their eggs on or near decaying fruit.
+                                The details differ greatly from species to species.
+                                The largest number of species is in the Hawaiian Islands.
+                                Some fruit flies can get drunk if they have a gene called "Happy Hour".
                             </p>
                         </div>
                     </div>
@@ -106,8 +111,10 @@
                         </div>
                         <div class="panel-body">
                             <p>
-                                Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                            </p>
+                                Obviously, there are many species in this genus. Clearly, some do prefer places where there is rotting fruit.
+                                Obviously, the adults may feed on nectar, and may lay their eggs on or near decaying fruit.
+                                The details differ greatly from species to species. Of course, the largest number of species is in the Hawaiian Islands.
+                                Of course, some fruit flies can get drunk if they have a gene called "Happy Hour".
                         </div>
                     </div>
                 </div>
