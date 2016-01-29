@@ -62,7 +62,7 @@
         }
 
         function uncapitalizeFirstWord(sentence) {
-          return sentence[0].toLowerCase() + sentence.substr(1);
+            return sentence[0].toLowerCase() + sentence.substr(1);
         }
 
         function insertActiveKeywordsRandomly(sentences, activeKeywords) {
