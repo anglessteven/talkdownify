@@ -61,6 +61,10 @@
             });
         }
 
+        function uncapitalizeFirstWord(sentence) {
+            return sentence[0].toLowerCase() + sentence.substr(1);
+        }
+
         function insertActiveKeywordsRandomly(sentences, activeKeywords) {
             var i;
             for (i = 0; (i < sentences.length); i++) {
@@ -68,7 +72,7 @@
                     var random = Math.round(getRandomArbitrary(0, activeKeywords.length - 1));
                     var curActiveKeyword = activeKeywords[random];
                     if (sentences[i].indexOf(curActiveKeyword) !== 0) {
-                        sentences[i] = curActiveKeyword + ", " + sentences[i];
+                        sentences[i] = curActiveKeyword + ", " + uncapitalizeFirstWord(sentences[i]);
                     }
                 }
             }
