@@ -20,13 +20,15 @@
         vm.addKeyword = addKeyword;
 
         function talkdownify() {
-            $log.debug("text is: ", vm.text);
             talkdownifyService.talkdownify(vm.text, vm.keywords)
-                .then(talkdownifySuccess);
+                .then(talkdownifySuccess, talkdownifyFail);
         }
 
         function talkdownifySuccess(result) {
-            $log.debug("result is: ", result);
+            vm.talkdownifiedText = result;
+        }
+
+        function talkdownifyFail(result) {
             vm.talkdownifiedText = result;
         }
 

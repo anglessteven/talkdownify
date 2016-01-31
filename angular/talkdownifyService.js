@@ -8,20 +8,23 @@
 
     function TalkdownifyService($log, $q) {
         var talkdownifyService = this;
+        var activeKeywords = [];
+        var curActiveKeywordPos = 0;
 
         talkdownifyService.talkdownify = talkdownify;
 
         function talkdownify(text, keywords) {
             return $q(function (resolve, reject) {
-                if (text) {
+                activeKeywords = getActiveKeywords(keywords);
+                if (text && activeKeywords.length > 0) {
                     var sentences = parseIntoSentences(text);
-                    var activeKeywords = getActiveKeywords(keywords);
-                    insertActiveKeywordsRandomly(sentences, activeKeywords);
+                    insertActiveKeywordsRandomly(sentences);
 
+                    curActiveKeywordPos = 0;
                     resolve(sentences.join(" "));
                 }
                 else {
-                    reject("text was undefined!");
+                    reject("Please enter some text and at least one word in the word bank!");
                 }
             });
         }
@@ -53,29 +56,38 @@
         }
 
         function getActiveKeywords(keywords) {
-            return keywords.filter(function (keywordObj) {
+            var activeKeywords = keywords.filter(function (keywordObj) {
                 return (keywordObj.word && keywordObj.word != "" && keywordObj.checked);
             })
             .map(function (keywordObj) {
                 return keywordObj.word;
             });
+
+            return _.shuffle(activeKeywords);
         }
 
-        function uncapitalizeFirstWord(sentence) {
-            return sentence[0].toLowerCase() + sentence.substr(1);
-        }
-
-        function insertActiveKeywordsRandomly(sentences, activeKeywords) {
+        function insertActiveKeywordsRandomly(sentences) {
             var i;
             for (i = 0; (i < sentences.length); i++) {
                 if (getRandomArbitrary(0, 1) < 0.5 && sentences[i] != "") {
-                    var random = Math.round(getRandomArbitrary(0, activeKeywords.length - 1));
-                    var curActiveKeyword = activeKeywords[random];
+                    var curActiveKeyword = getNextActiveKeyword();
                     if (sentences[i].indexOf(curActiveKeyword) !== 0) {
                         sentences[i] = curActiveKeyword + ", " + uncapitalizeFirstWord(sentences[i]);
                     }
                 }
             }
+        }
+
+        function getNextActiveKeyword() {
+            if (curActiveKeywordPos >= activeKeywords.length) {
+                activeKeywords = _.shuffle(activeKeywords);
+                curActiveKeywordPos = 0;
+            }
+            return activeKeywords[curActiveKeywordPos++];
+        }
+
+        function uncapitalizeFirstWord(sentence) {
+            return sentence[0].toLowerCase() + sentence.substr(1);
         }
 
         // ripped straight from MDN:
